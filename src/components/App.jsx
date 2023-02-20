@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GlobalStyle } from './GlobalStyle';
 import { Form } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
@@ -36,16 +37,18 @@ export class App extends Component {
     );
   };
 
+  deleteContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== contactId),
+    }));
+  };
+
   render() {
     const visibleContacts = this.getFilteredContacts();
     return (
       <div
         style={{
           paddingLeft: 30,
-          // height: '100vh',
-          // display: 'flex',
-          // justifyContent: 'center',
-          // alignItems: 'center',
           fontSize: 20,
           color: '#010101',
         }}
@@ -54,7 +57,8 @@ export class App extends Component {
         <Form onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
-        <Contacts contacts={visibleContacts} />
+        <Contacts contacts={visibleContacts} onDelete={this.deleteContact} />
+        <GlobalStyle />
       </div>
     );
   }
