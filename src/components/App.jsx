@@ -18,9 +18,13 @@ export class App extends Component {
   formSubmitHandler = data => {
     console.log(data);
 
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, data],
-    }));
+    if (this.state.contacts.find(contact => contact.name === data.name)) {
+      alert(`${data.name} is already in contacts`);
+    } else {
+      this.setState(prevState => ({
+        contacts: [...prevState.contacts, data],
+      }));
+    }
   };
 
   changeFilter = evt => {

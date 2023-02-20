@@ -17,6 +17,6 @@ code {
 }
 
 h2 {
-  margin-top: 70px;
+  margin-top: 4 0px;
 }
 `;
