@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
-import { Form } from './Form/Form';
+import { ContactForm } from './Form/Form';
 import { Contacts } from './Contacts/Contacts';
 import { Filter } from './Filter/Filter';
 
@@ -58,7 +58,7 @@ export class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
-        <Form onSubmit={this.formSubmitHandler} />
+        <ContactForm onSubmit={this.formSubmitHandler} />
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
         <Contacts contacts={visibleContacts} onDelete={this.deleteContact} />

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Form, Field } from 'formik';
 
-export const ContactForm = styled.form`
+export const ContactFormStyled = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -22,7 +23,7 @@ export const Span = styled.span`
   margin-bottom: 5px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   display: block;
   font-size: 20px;
 `;
